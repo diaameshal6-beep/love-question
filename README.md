@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سؤال الحب</title>
+
+<style>
+body {
+    background: linear-gradient(to bottom, #ff69b4, #ffb6c1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    color: white;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 10px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yes {
+    background-color: #4CAF50;
+}
+
+#yes:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    background-color: #f44336;
+    position: absolute;
+}
+
+#heart {
+    display: none;
+    font-size: 6em;
+    margin-top: 50px;
+    animation: heartbeat 1s infinite;
+}
+
+#message {
+    display: none;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>هل تحبيني؟ 😍</h1>
+
+<button id="yes">نعم</button>
+<button id="no">لا</button>
+
+<div id="heart">❤️</div>
+<div id="message">بحبك قد الدنيا كلهاسدورتي الزاكية  ❤️</div>
+
+<script>
+const noButton = document.getElementById('no');
+const yesButton = document.getElementById('yes');
+const heart = document.getElementById('heart');
+const message = document.getElementById('message');
+
+noButton.addEventListener('mouseover', () => {
+    const maxX = window.innerWidth - noButton.offsetWidth;
+    const maxY = window.innerHeight - noButton.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noButton.style.left = `${x}px`;
+    noButton.style.top = `${y}px`;
+});
+
+yesButton.addEventListener('click', () => {
+    heart.style.display = 'block';
+    message.style.display = 'block';
+    yesButton.style.display = 'none';
+    noButton.style.display = 'none';
+});
+</script>
+
+</body>
+</html>
